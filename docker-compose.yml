@@ -1,0 +1,15 @@
+version: '3'
+services:
+  api:
+    build:
+      context: .
+      dockerfile: ./src/docker/Dockerfile
+    ports:
+      - 8000:8080
+    env_file: ./src/.env
+    working_dir: /go
+    volumes:
+      - ./src:/go
+    command:
+      sh
+    tty: true
